@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"strings"
 )
 
 func main() {
@@ -16,6 +17,11 @@ func main() {
 	}
 
 	pkg := os.Args[1]
+	pkgpth := pkg
+	if strings.Contains(pkg, "@") {
+		parts := strings.Split(pkg, "@")
+		pkgpth = parts[0]
+	}
 	out := os.Args[2]
 
 	// make a temp dir
@@ -58,7 +64,7 @@ import (
 func init() {
 	ADL = theADL.Reify
 }
-`, pkg)
+`, pkgpth)
 
 	if _, err := f.WriteString(templ); err != nil {
 		fmt.Printf("Failed to write: %v\n", err)
@@ -67,7 +73,17 @@ func init() {
 	f.Close()
 
 	// get go mod set up
-	cmd := exec.Command("go", "mod", "tidy")
+	cmd := exec.Command("go", "get", pkg)
+	cmd.Stderr = os.Stderr
+	cmd.Stdout = os.Stdout
+	cmd.Dir = dir
+	err = cmd.Run()
+	if err != nil {
+		fmt.Printf("Failed to add module: %v\n", err)
+		os.Exit(1)
+	}
+
+	cmd = exec.Command("go", "mod", "tidy")
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
 	cmd.Dir = dir
