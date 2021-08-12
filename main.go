@@ -2,8 +2,6 @@
 package main
 
 import (
-	"io"
-
 	ipld "github.com/ipld/go-ipld-prime"
 	cidlink "github.com/ipld/go-ipld-prime/linking/cid"
 )
@@ -22,15 +20,9 @@ func adl_reify(n node_ref) errno {
 		return ErrAlreadyExists
 	}
 
-	ls := cidlink.DefaultLinkSystem()
-	ls.StorageReadOpener = func(ipld.LinkContext, ipld.Link) (io.Reader, error) {
-		return nil, nil
-	}
-	ls.StorageWriteOpener = func(ipld.LinkContext) (io.Writer, ipld.BlockWriteCommitter, error) {
-		return nil, nil, nil
-	}
+	ls := proxyLinkSystem()
 
-	node, err := ADL(ipld.LinkContext{}, &proxyNode{n}, &ls)
+	node, err := ADL(ipld.LinkContext{}, &proxyNode{n}, ls)
 	if err != nil {
 		return toErrno(err)
 	}
