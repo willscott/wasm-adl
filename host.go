@@ -1,12 +1,16 @@
 package main
 
-type ptr uint64
-type size uint64
-type node_ref uint32
-type map_ref uint32
-type list_ref uint32
-type map_builder_ref uint32
-type list_builder_ref uint32
+import (
+	"github.com/willscott/wasm-adl/common"
+)
+
+type ptr = common.Ptr
+type size = common.Size
+type node_ref = common.Node_ref
+type map_ref = common.Map_ref
+type list_ref = common.List_ref
+type map_builder_ref = common.Map_builder_ref
+type list_builder_ref = common.List_builder_ref
 
 //export load
 func load(ptr, size) node_ref

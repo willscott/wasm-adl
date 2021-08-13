@@ -5,9 +5,10 @@ import (
 	"fmt"
 
 	"github.com/ipld/go-ipld-prime"
+	"github.com/willscott/wasm-adl/common"
 )
 
-type errno uint8
+type errno = common.Errno
 
 const (
 	ErrUnknown       = 1

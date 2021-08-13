@@ -48,7 +48,10 @@ func adl_lookup_by_index(idx int64) (node_ref, errno) {
 
 //export adl_kind
 func adl_kind() uint8 {
-	return 0
+	if NodeInst == nil {
+		return 0
+	}
+	return NodeInst.Kind()
 }
 
 const NumIterators = 32
