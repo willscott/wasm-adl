@@ -21,9 +21,9 @@ func (w *wasmADL) new_null(m *wasm.VirtualMachine) reflect.Value {
 	return reflect.ValueOf(body)
 }
 
-//new_bool(uint8) node_ref
+//new_bool(uint32) node_ref
 func (w *wasmADL) new_bool(m *wasm.VirtualMachine) reflect.Value {
-	body := func(v uint8) common.Node_ref {
+	body := func(v uint32) common.Node_ref {
 		if v != 0 {
 			b := basicnode.NewBool(true)
 			return w.alloc(b)

@@ -10,14 +10,14 @@ import (
 	"github.com/willscott/wasm-adl/common"
 )
 
-//(node_ref) uint8
+//(node_ref) uint32
 func (w *wasmADL) kind(m *wasm.VirtualMachine) reflect.Value {
-	body := func(nr common.Node_ref) uint8 {
+	body := func(nr common.Node_ref) uint32 {
 		n, ok := w.functions[int32(nr)]
 		if !ok {
 			return uint8(ipld.Kind_Invalid)
 		}
-		return uint8(n.Kind())
+		return uint32(n.Kind())
 	}
 	return reflect.ValueOf(body)
 }
@@ -124,7 +124,7 @@ func (w *wasmADL) length(m *wasm.VirtualMachine) reflect.Value {
 
 //is_absent(node_ref) uint8
 func (w *wasmADL) is_absent(m *wasm.VirtualMachine) reflect.Value {
-	body := func(nr common.Node_ref) uint8 {
+	body := func(nr common.Node_ref) uint32 {
 		n, ok := w.functions[int32(nr)]
 		if !ok {
 			return 2
@@ -140,7 +140,7 @@ func (w *wasmADL) is_absent(m *wasm.VirtualMachine) reflect.Value {
 
 //is_null(node_ref) uint8
 func (w *wasmADL) is_null(m *wasm.VirtualMachine) reflect.Value {
-	body := func(nr common.Node_ref) uint8 {
+	body := func(nr common.Node_ref) uint32 {
 		n, ok := w.functions[int32(nr)]
 		if !ok {
 			return 2
@@ -156,7 +156,7 @@ func (w *wasmADL) is_null(m *wasm.VirtualMachine) reflect.Value {
 
 //as_bool(node_ref) (uint8, errno)
 func (w *wasmADL) as_bool(m *wasm.VirtualMachine) reflect.Value {
-	body := func(nr common.Node_ref) (uint8, common.Errno) {
+	body := func(nr common.Node_ref) (uint32, common.Errno) {
 		n, ok := w.functions[int32(nr)]
 		if !ok {
 			return 0, common.ErrUnknown

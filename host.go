@@ -16,7 +16,7 @@ type list_builder_ref = common.List_builder_ref
 func load(ptr, size) node_ref
 
 //export kind
-func kind(node_ref) uint8
+func kind(node_ref) uint32
 
 //export lookup_by_string
 func lookup_by_string(node_ref, ptr, size) (node_ref, errno)
@@ -37,13 +37,13 @@ func list_iterator(node_ref) list_ref
 func length(node_ref) uint64
 
 //export is_absent
-func is_absent(node_ref) uint8
+func is_absent(node_ref) uint32
 
 //export is_null
-func is_null(node_ref) uint8
+func is_null(node_ref) uint32
 
 //export as_bool
-func as_bool(node_ref) (uint8, errno)
+func as_bool(node_ref) (uint32, errno)
 
 //export as_int
 func as_int(node_ref) (uint64, errno)
@@ -64,19 +64,19 @@ func as_link(node_ref, ptr, size) (size, errno)
 func map_iterate_next(map_ref) (node_ref, node_ref, errno)
 
 //export map_iterate_done
-func map_iterate_done(map_ref) uint8
+func map_iterate_done(map_ref) uint32
 
 //export list_iterate_next
 func list_iterate_next(list_ref) (uint64, node_ref, errno)
 
 //export list_iterate_done
-func list_iterate_done(list_ref) uint8
+func list_iterate_done(list_ref) uint32
 
 //export new_null
 func new_null() node_ref
 
 //export new_bool
-func new_bool(uint8) node_ref
+func new_bool(uint32) node_ref
 
 //export new_int
 func new_int(uint64) node_ref

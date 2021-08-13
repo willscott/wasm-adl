@@ -47,7 +47,7 @@ func adl_lookup_by_index(idx int64) (node_ref, errno) {
 }
 
 //export adl_kind
-func adl_kind() uint8 {
+func adl_kind() uint32 {
 	if NodeInst == nil {
 		return 0
 	}
@@ -99,7 +99,7 @@ func adl_map_iterator_next(mi_ref uint32) (node_ref, node_ref, errno) {
 }
 
 //export adl_map_iterator_done
-func adl_map_iterator_done(mi_ref uint32) uint8 {
+func adl_map_iterator_done(mi_ref uint32) uint32 {
 	if mi_ref >= NumIterators || mapIterators[mi_ref] == nil {
 		return ErrDoesNotExist
 	}
@@ -145,7 +145,7 @@ func adl_list_iterator_next(li_ref uint32) (uint64, node_ref, errno) {
 }
 
 //export adl_list_iterator_done
-func adl_list_iterator_done(li_ref uint32) uint8 {
+func adl_list_iterator_done(li_ref uint32) uint32 {
 	if li_ref >= NumIterators || listIterators[li_ref] == nil {
 		return ErrDoesNotExist
 	}
@@ -165,7 +165,7 @@ func adl_length() uint64 {
 }
 
 //export adl_is_absent
-func adl_is_absent() uint8 {
+func adl_is_absent() uint32 {
 	if NodeInst == nil {
 		return ErrDoesNotExist
 	}
@@ -176,7 +176,7 @@ func adl_is_absent() uint8 {
 }
 
 //export adl_is_null
-func adl_is_null() uint8 {
+func adl_is_null() uint32 {
 	if NodeInst == nil {
 		return ErrDoesNotExist
 	}
@@ -187,7 +187,7 @@ func adl_is_null() uint8 {
 }
 
 //export adl_as_bool
-func adl_as_bool() (uint8, errno) {
+func adl_as_bool() (uint32, errno) {
 	if NodeInst == nil {
 		return 0, ErrDoesNotExist
 	}

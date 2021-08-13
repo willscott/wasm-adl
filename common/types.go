@@ -9,7 +9,7 @@ type Map_ref uint32
 type List_ref uint32
 type Map_builder_ref uint32
 type List_builder_ref uint32
-type Errno uint8
+type Errno uint32
 
 const (
 	ErrUnknown       = 1
