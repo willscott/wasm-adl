@@ -7,6 +7,8 @@ github.com/ipld/go-ipld-prime v0.11.0 h1:jD/b/22R7CSL+F9xNffcexs+wO0Ji/TfwXO/TWc
 github.com/ipld/go-ipld-prime v0.11.0/go.mod h1:+WIAkokurHmZ/KwzDOMUuoeJgaRQktHtEaLglS3ZeV8=
 github.com/ipld/go-ipld-prime v0.11.1-0.20210813082523-5604214b53a2 h1:EopNbX14avPhIJ/SyV8qiw6ig9kLXgsmYPIjLzgRHDI=
 github.com/ipld/go-ipld-prime v0.11.1-0.20210813082523-5604214b53a2/go.mod h1:+WIAkokurHmZ/KwzDOMUuoeJgaRQktHtEaLglS3ZeV8=
+github.com/ipld/go-ipld-prime v0.11.1-0.20210813083346-6de08f70dc02 h1:lEwl7KfM6K7jmFUXMHC96Arlpu6nQmyC2QeR108Yjdo=
+github.com/ipld/go-ipld-prime v0.11.1-0.20210813083346-6de08f70dc02/go.mod h1:+WIAkokurHmZ/KwzDOMUuoeJgaRQktHtEaLglS3ZeV8=
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
 github.com/klauspost/cpuid/v2 v2.0.4 h1:g0I61F2K2DjRHz1cnxlkNSBIaePVoJIjjnHui8QHbiw=
 github.com/klauspost/cpuid/v2 v2.0.4/go.mod h1:FInQzS24/EEf25PyTYn52gqo7WaD8xa0213Md/qVLRg=
