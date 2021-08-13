@@ -51,7 +51,7 @@ func adl_kind() uint8 {
 	if NodeInst == nil {
 		return 0
 	}
-	return NodeInst.Kind()
+	return uint8(NodeInst.Kind())
 }
 
 const NumIterators = 32
